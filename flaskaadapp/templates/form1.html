@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <h1>This is a form that requires AAD Authentication to access!</h1>
+    {{ form.parameter1.label }} {{ form.parameter1() }}<br>
+    {{ form.parameter2.label }} {{ form.parameter2() }}<br>
+    {{ form.submit() }}
+</form>
+{% endblock %}
