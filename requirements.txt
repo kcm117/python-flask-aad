@@ -3,3 +3,4 @@ Flask-Dance
 Flask-WTF
 WTForms
 pylint
+werkzeug

@@ -6,10 +6,7 @@ from flask_dance.contrib.azure import make_azure_blueprint, azure
 import os
 
 blueprint = make_azure_blueprint(
-    client_id=os.environ['AAD_CLIENTID'],
-    client_secret=os.environ['AAD_CLIENTSECRET'],
-    tenant='microsoft.onmicrosoft.com',
-    redirect_to='form1'
+    tenant='microsoft.onmicrosoft.com'
 )
 app.register_blueprint(blueprint, url_prefix="/login")
 
@@ -19,7 +16,7 @@ app.register_blueprint(blueprint, url_prefix="/login")
 @app.route("/")
 def home():
     if not azure.authorized:
-        return redirect(url_for("azure.login",_scheme="https",_external=True))
+        return redirect(url_for("azure.login"))
     resp = azure.get("/v1.0/me")
     assert resp.ok
 
@@ -30,7 +27,7 @@ def home():
 @app.route("/form1")
 def form1():
     if not azure.authorized:
-        return redirect(url_for("azure.login",_scheme="https",_external=True))
+        return redirect(url_for("azure.login"))
     resp = azure.get("/v1.0/me")
     assert resp.ok
     
