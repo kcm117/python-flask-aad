@@ -19,7 +19,7 @@ app.register_blueprint(blueprint, url_prefix="/login")
 @app.route("/")
 def home():
     if not azure.authorized:
-        return redirect(url_for("azure.login").replace('http://', 'https://', 1))
+        return redirect(url_for("azure.login",_scheme="https",_external=True))
     resp = azure.get("/v1.0/me")
     assert resp.ok
 
@@ -30,7 +30,7 @@ def home():
 @app.route("/form1")
 def form1():
     if not azure.authorized:
-        return redirect(url_for("azure.login").replace('http://', 'https://', 1))
+        return redirect(url_for("azure.login",_scheme="https",_external=True))
     resp = azure.get("/v1.0/me")
     assert resp.ok
     
