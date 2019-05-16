@@ -8,7 +8,8 @@ import os
 blueprint = make_azure_blueprint(
     client_id=os.environ['AAD_CLIENTID'],
     client_secret=os.environ['AAD_CLIENTSECRET'],
-    tenant="microsoft.onmicrosoft.com"
+    tenant='microsoft.onmicrosoft.com',
+    redirect_to='form1'
 )
 app.register_blueprint(blueprint, url_prefix="/login")
 

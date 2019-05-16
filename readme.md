@@ -7,9 +7,14 @@ py -3.7 -m venv venv
 # Activate virtual env
 venv\Scripts\activate
 
-# Install Flask and Flask-Dance
-pip install Flask Flask-Dance
+# Update Pip
+python -m pip install --upgrade pip
 
-set FLASK_APP=app.py & set FLASK_DEBUG=1 & python -m flask run
+# Install Flask and Flask-Dance
+pip install -r requirements.txt
+
+
+# For Local Testing
+set FLASK_APP=app.py & set FLASK_DEBUG=1 & set OAUTHLIB_INSECURE_TRANSPORT=1 & python -m flask run
 
 ```

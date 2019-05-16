@@ -2,3 +2,4 @@ Flask
 Flask-Dance
 Flask-WTF
 WTForms
+pylint
