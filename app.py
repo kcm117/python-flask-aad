@@ -6,7 +6,7 @@ from flask_dance.contrib.azure import make_azure_blueprint, azure
 import os
 
 blueprint = make_azure_blueprint(
-    tenant='microsoft.onmicrosoft.com' # This allows only Microsoft AAD tenant logins, change to your tenant.
+    tenant= os.environ['AAD_TENANT'] # Store your tenant name in an environment variable called "AAD_TENANT", e.g value: 'microsoft.onmicrosoft.com'
 )
 app.register_blueprint(blueprint, url_prefix="/login")
 
