@@ -1,6 +1,5 @@
 from flask import Flask
 from werkzeug.middleware.proxy_fix import ProxyFix
-
 import os
 
 # http://flask.pocoo.org/snippets/35/
@@ -12,7 +11,7 @@ import os
 app = Flask(__name__)
 
 # App Proxy
-app.wsgi_app = ProxyFix(app.wsgi_app,x_for=1,x_proto=1,X_host=1,x_port=1,x_prefix=1)
+app.wsgi_app = ProxyFix(app.wsgi_app,x_for=1,x_proto=1,x_host=1,x_port=1,x_prefix=1)
 
 # App Secret
 app.secret_key = 'SUPER_SECRET_KEY'
