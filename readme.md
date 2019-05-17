@@ -22,3 +22,6 @@ pip install -r requirements.txt
 # Run for local testing
 set FLASK_APP=app.py & set FLASK_DEBUG=1 & set OAUTHLIB_INSECURE_TRANSPORT=1 & python -m flask run
 ```
+
+Environment Variables:
+
