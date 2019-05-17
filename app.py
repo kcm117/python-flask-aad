@@ -1,7 +1,7 @@
 # set FLASK_APP=app.py & set FLASK_DEBUG=1 & python -m flask run
 from flaskaadapp import app
 from flaskaadapp.forms import Form1
-from flask import redirect, url_for, render_template, request
+from flask import redirect, url_for, render_template, request, flash
 from flask_dance.contrib.azure import make_azure_blueprint, azure
 import os
 
@@ -33,4 +33,13 @@ def form1():
     
     form = Form1()
     
+    if form.validate_on_submit():   
+        parameter1 = form.parameter1.data
+        parameter2 = form.parameter2.data
+
+        flash("Thanks for filling out the form!")
+        print(parameter1,parameter2)
+
+        return render_template('form1.html', form=form,azure=azure)
+
     return render_template('form1.html', form=form,azure=azure)
