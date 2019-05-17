@@ -13,7 +13,7 @@ app.register_blueprint(blueprint, url_prefix="/login")
 # https://flask-dance.readthedocs.io/en/latest/providers.html#module-flask_dance.contrib.azure
 # https://flask-dance.readthedocs.io/en/v1.2.0/quickstarts/azure.html
 
-@app.route("/")
+@app.route('/')
 def home():
     if not azure.authorized:
         return redirect(url_for("azure.login"))
@@ -24,7 +24,7 @@ def home():
     # return "You are {mail} on Azure AD".format(mail=resp.json()["userPrincipalName"])
     return render_template('home.html', data=display_text, azure=azure)
 
-@app.route("/form1")
+@app.route('/form1', methods=['GET','POST'])
 def form1():
     if not azure.authorized:
         return redirect(url_for("azure.login"))
